@@ -147,7 +147,7 @@ export async function generateCode(){
 
     // if code is already used, generate again
     if(codeResult.rows.length > 0) {
-        return generateCode();
+        return await generateCode();
     }
 
     return result;
@@ -236,7 +236,7 @@ export async function completePayment(orderId, studentId) {
         [orderId, studentId]
     );
 
-    updateOrderStatus(orderId);
+    await updateOrderStatus(orderId);
 }
 
 // finalise order status once all participants complete payment
@@ -257,6 +257,13 @@ export async function updateOrderStatus(orderId) {
             [orderId] 
         );
     }
+}
+
+// delete an order
+export async function deleteOrder(orderId) {
+    await pool.query(`DELETE FROM shared_order_items WHERE order_id = $1`, [orderId]);
+    await pool.query(`DELETE FROM shared_orders WHERE id = $1`, [orderId]);
+    await pool.query(`DELETE FROM student_contributions WHERE order_id = $1`, [orderId]);
 }
 
 /**
