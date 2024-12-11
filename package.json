@@ -15,9 +15,10 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "pg": "^8.13.1",
+    "react-router-dom": "^7.0.2",
     "util": "^0.12.5"
   },
   "devDependencies": {
@@ -35,9 +36,8 @@
     "supertest": "^7.0.0"
   },
   "jest": {
-  "moduleNameMapper": {
-    "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    }
   }
-}
-
 }

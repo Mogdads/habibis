@@ -1,6 +1,8 @@
 import express from 'express'
 import router from './endpoints.js';
 import pool from './utils.js';
+require('dotenv').config();
+
 
 //import { initaliseData } from './utils.js';
 import cors from 'cors';

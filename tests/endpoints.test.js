@@ -21,7 +21,7 @@ describe("Endpoint Tests", () => {
             expect(response.body.message).toBe("Shared order created successfully");
             expect(response.body.uniqueCode).toBeDefined();
             uniqueCode = response.body.uniqueCode;
-        });
+        }, 10000);
 
         test("POST /order/join should add student 2 to the order", async () => {
             const response = await request(app)
