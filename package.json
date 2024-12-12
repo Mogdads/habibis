@@ -19,7 +19,8 @@
     "express": "^4.21.2",
     "pg": "^8.13.1",
     "react-router-dom": "^7.0.2",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",

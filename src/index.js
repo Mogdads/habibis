@@ -38,3 +38,22 @@ const server = app.listen(port, async () => {
 });
 
 export { app, server };
+
+// backend logging
+const logger = require('./logger');
+
+app.use((req, res, next) => {
+  logger.info(`Incoming request: ${req.method} ${req.url}`);
+  next();
+});
+
+app.post('/order', async (req, res) => {
+  try {
+    // Logic to create order
+    logger.info(`Order created successfully: ${JSON.stringify(req.body)}`);
+    res.status(201).send({ message: 'Order created' });
+  } catch (error) {
+    logger.error(`Order creation failed: ${error.message}`);
+    res.status(500).send({ error: 'Internal Server Error' });
+  }
+});
